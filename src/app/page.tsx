@@ -1,152 +1,88 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alef</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+import Image from "next/image";
 
-        body {
-            background: #0a0a0a;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Vazirmatn', Arial, sans-serif;
-            overflow: hidden;
-            position: relative;
-        }
+export default function Home() {
+  return (
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li className="mb-2 tracking-[-.01em]">
+            Alef Ai is Live!{" "}
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
+              src/app/page.tsx
+            </code>
+            .
+          </li>
+          <li className="tracking-[-.01em]">
+            Chat and Have new.
+          </li>
+        </ol>
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(50, 50, 50, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(70, 70, 70, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(30, 30, 30, 0.4) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .container {
-            text-align: center;
-            z-index: 2;
-            position: relative;
-            padding: 2rem;
-        }
-
-        .main-text {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-shadow: 
-                0 0 20px rgba(255, 255, 255, 0.3),
-                0 0 40px rgba(255, 255, 255, 0.2),
-                0 0 60px rgba(255, 255, 255, 0.1);
-            margin-bottom: 1rem;
-            animation: glow 3s ease-in-out infinite alternate;
-        }
-
-        .sub-text {
-            font-size: 1.5rem;
-            color: #999;
-            text-shadow: 0 0 10px rgba(153, 153, 153, 0.5);
-            opacity: 0.8;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 
-                    0 0 20px rgba(255, 255, 255, 0.3),
-                    0 0 40px rgba(255, 255, 255, 0.2),
-                    0 0 60px rgba(255, 255, 255, 0.1);
-            }
-            to {
-                text-shadow: 
-                    0 0 30px rgba(255, 255, 255, 0.5),
-                    0 0 50px rgba(255, 255, 255, 0.3),
-                    0 0 70px rgba(255, 255, 255, 0.2);
-            }
-        }
-
-        .smoke {
-            position: fixed;
-            width: 100px;
-            height: 100px;
-            background: rgba(100, 100, 100, 0.1);
-            border-radius: 50%;
-            filter: blur(20px);
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .smoke:nth-child(1) {
-            top: 10%;
-            left: 20%;
-            animation-delay: 0s;
-            animation-duration: 15s;
-        }
-
-        .smoke:nth-child(2) {
-            top: 60%;
-            right: 10%;
-            animation-delay: 5s;
-            animation-duration: 18s;
-        }
-
-        .smoke:nth-child(3) {
-            bottom: 20%;
-            left: 70%;
-            animation-delay: 10s;
-            animation-duration: 22s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) translateX(0px);
-                opacity: 0.3;
-            }
-            25% {
-                transform: translateY(-30px) translateX(20px);
-                opacity: 0.5;
-            }
-            50% {
-                transform: translateY(-10px) translateX(-15px);
-                opacity: 0.2;
-            }
-            75% {
-                transform: translateY(-40px) translateX(10px);
-                opacity: 0.4;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-text {
-                font-size: 20.5rem;
-            }
-            .sub-text {
-                font-size: 10.2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="smoke"></div>
-    <div class="smoke"></div>
-    <div class="smoke"></div>
-    
-    <div class="container">
-        <h1 class="main-text">Alef</h1>
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <a
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read our docs
+          </a>
+        </div>
+      </main>
+      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/file.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          Learn
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/window.svg"
+            alt="Window icon"
+            width={16}
+            height={16}
+          />
+          Examples
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/globe.svg"
+            alt="Globe icon"
+            width={16}
+            height={16}
+          />
+          Go to nextjs.org →
+        </a>
+      </footer>
     </div>
-</body>
-</html>
+  );
+}
